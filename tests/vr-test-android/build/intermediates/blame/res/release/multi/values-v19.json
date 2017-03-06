@@ -1,0 +1,26 @@
+[
+  {
+    "outputFile": "E:\\Projects\\gdx-vr-extension\\tests\\vr-test-android\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v19\\values-v19.xml",
+    "map": [
+      {
+        "to": {
+          "startLine": 2,
+          "startColumn": 4,
+          "startOffset": 55,
+          "endColumn": 60,
+          "endOffset": 111
+        },
+        "from": {
+          "file": "C:\\Users\\Richard\\.android\\build-cache\\a8b7041fd0700cfea434f630cc9a70948f7d5fc5\\output\\res\\values-v19\\values.xml",
+          "position": {
+            "startLine": 4,
+            "startColumn": 0,
+            "startOffset": 148,
+            "endColumn": 56,
+            "endOffset": 204
+          }
+        }
+      }
+    ]
+  }
+]

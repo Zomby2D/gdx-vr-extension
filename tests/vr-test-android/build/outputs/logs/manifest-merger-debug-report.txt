@@ -1,0 +1,119 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:2:1-50:12
+	package
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:3:5-40
+		INJECTED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml
+		INJECTED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml
+	android:versionName
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:5:5-30
+		INJECTED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml
+		INJECTED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml
+	android:versionCode
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:4:5-28
+		INJECTED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml
+		INJECTED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:2:11-69
+uses-sdk
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:8:5-10:41
+MERGED from [gdx-vr-extension:gdx-vr-android:1.9.6] E:\Projects\gdx-vr-extension\gdx-vr-android\build\intermediates\bundles\default\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.vr:sdk-base:1.20.0] C:\Users\Richard\.android\build-cache\dbd26b2ef9309459ee97b502e37c49765a1d4fef\output\AndroidManifest.xml:5:5-73
+MERGED from [com.google.vr:sdk-common:1.20.0] C:\Users\Richard\.android\build-cache\a8b7041fd0700cfea434f630cc9a70948f7d5fc5\output\AndroidManifest.xml:3:5-73
+	android:targetSdkVersion
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:10:9-38
+		INJECTED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml
+		INJECTED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:9:9-35
+		INJECTED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml
+		INJECTED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml
+uses-feature#0x00020000
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:11:5-13:35
+MERGED from [gdx-vr-extension:gdx-vr-android:1.9.6] E:\Projects\gdx-vr-extension\gdx-vr-android\build\intermediates\bundles\default\AndroidManifest.xml:10:5-12:35
+MERGED from [com.google.vr:sdk-base:1.20.0] C:\Users\Richard\.android\build-cache\dbd26b2ef9309459ee97b502e37c49765a1d4fef\output\AndroidManifest.xml:6:5-77
+	android:glEsVersion
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:12:9-41
+	android:required
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:13:9-32
+uses-permission#android.permission.VIBRATE
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:16:5-66
+MERGED from [gdx-vr-extension:gdx-vr-android:1.9.6] E:\Projects\gdx-vr-extension\gdx-vr-android\build\intermediates\bundles\default\AndroidManifest.xml:15:5-66
+	android:name
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:16:22-63
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:18:5-80
+MERGED from [gdx-vr-extension:gdx-vr-android:1.9.6] E:\Projects\gdx-vr-extension\gdx-vr-android\build\intermediates\bundles\default\AndroidManifest.xml:17:5-80
+MERGED from [com.google.vr:sdk-base:1.20.0] C:\Users\Richard\.android\build-cache\dbd26b2ef9309459ee97b502e37c49765a1d4fef\output\AndroidManifest.xml:9:5-79
+	android:name
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:18:22-77
+uses-feature#android.hardware.sensor.accelerometer
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:21:5-23:35
+	android:required
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:23:9-32
+	android:name
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:22:9-61
+uses-feature#android.hardware.sensor.gyroscope
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:24:5-26:35
+	android:required
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:26:9-32
+	android:name
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:25:9-57
+application
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:28:5-48:19
+	android:label
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:31:9-41
+	android:allowBackup
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:29:9-35
+	android:icon
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:30:9-45
+	android:theme
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:32:9-40
+activity#com.badlogic.gdx.vr.tests.AndroidLauncher
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:33:9-47:20
+	android:screenOrientation
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:36:13-50
+	android:enableVrMode
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:38:13-65
+	android:label
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:35:13-45
+	android:resizeableActivity
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:39:13-47
+	android:configChanges
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:37:13-74
+	android:name
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:34:13-44
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER+com.google.intent.category.CARDBOARD+com.google.intent.category.DAYDREAM
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:40:13-46:29
+action#android.intent.action.MAIN
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:41:17-69
+	android:name
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:41:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:43:17-77
+	android:name
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:43:27-74
+category#com.google.intent.category.CARDBOARD
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:44:17-81
+	android:name
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:44:27-78
+category#com.google.intent.category.DAYDREAM
+ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:45:17-80
+	android:name
+		ADDED from E:\Projects\gdx-vr-extension\tests\vr-test-android\AndroidManifest.xml:45:27-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [com.google.vr:sdk-base:1.20.0] C:\Users\Richard\.android\build-cache\dbd26b2ef9309459ee97b502e37c49765a1d4fef\output\AndroidManifest.xml:10:5-80
+	android:name
+		ADDED from [com.google.vr:sdk-base:1.20.0] C:\Users\Richard\.android\build-cache\dbd26b2ef9309459ee97b502e37c49765a1d4fef\output\AndroidManifest.xml:10:22-78
+uses-feature#android.software.vr.mode
+ADDED from [com.google.vr:sdk-base:1.20.0] C:\Users\Richard\.android\build-cache\dbd26b2ef9309459ee97b502e37c49765a1d4fef\output\AndroidManifest.xml:13:5-85
+	android:required
+		ADDED from [com.google.vr:sdk-base:1.20.0] C:\Users\Richard\.android\build-cache\dbd26b2ef9309459ee97b502e37c49765a1d4fef\output\AndroidManifest.xml:13:59-83
+	android:name
+		ADDED from [com.google.vr:sdk-base:1.20.0] C:\Users\Richard\.android\build-cache\dbd26b2ef9309459ee97b502e37c49765a1d4fef\output\AndroidManifest.xml:13:19-58
+uses-feature#android.hardware.vr.high_performance
+ADDED from [com.google.vr:sdk-base:1.20.0] C:\Users\Richard\.android\build-cache\dbd26b2ef9309459ee97b502e37c49765a1d4fef\output\AndroidManifest.xml:15:5-97
+	android:required
+		ADDED from [com.google.vr:sdk-base:1.20.0] C:\Users\Richard\.android\build-cache\dbd26b2ef9309459ee97b502e37c49765a1d4fef\output\AndroidManifest.xml:15:71-95
+	android:name
+		ADDED from [com.google.vr:sdk-base:1.20.0] C:\Users\Richard\.android\build-cache\dbd26b2ef9309459ee97b502e37c49765a1d4fef\output\AndroidManifest.xml:15:19-70

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="233061162317617848" name="back_button_content_description">"назад"</string>
+    <string msgid="2401572676578172896" name="cancel_button">"Откажи"</string>
+    <string msgid="2482357845034618478" name="dialog_button_got_it">"ВАЖИ"</string>
+    <string msgid="4505853433204459373" name="dialog_button_open_help_center">"ОТВОРИ ЦЕНТАР ЗА ПОМОЋ"</string>
+    <string msgid="4028688231551615655" name="dialog_message_incompatible_phone">"Треба вам телефон који подржава Daydream. Додатне информације потражите у Daydream центру за помоћ."</string>
+    <string msgid="3560856374975640601" name="dialog_message_no_cardboard">"Преузмите апликацију Cardboard да бисте конфигурисали маску."</string>
+    <string msgid="418839137454435402" name="dialog_message_setup">"Подесите маску за најбољи доживљај."</string>
+    <string msgid="7887077605817014784" name="dialog_title">"Конфигуришите"</string>
+    <string msgid="4515090705573059650" name="dialog_title_incompatible_phone">"Некомпатибилан телефон"</string>
+    <string msgid="2594928940370730859" name="dialog_title_vr_core_not_enabled">"Потребно је подешавање"</string>
+    <string msgid="6322165810291059770" name="dialog_title_vr_core_not_installed">"Потребно је инсталирање"</string>
+    <string msgid="455961049302726493" name="dialog_title_warning">"Упозорење"</string>
+    <string msgid="1966424794507569244" name="dialog_vr_core_not_enabled">"Ова апликација неће исправно функционисати ако не омогућите Google ВР услуге. Омогућите их у подешавањима телефона пре него што наставите."</string>
+    <string msgid="7122144659930752678" name="dialog_vr_core_not_installed">"Ова апликација неће исправно функционисати без Google ВР услуга. Инсталирајте Google ВР услуге из Play продавнице пре него што наставите."</string>
+    <string msgid="6145412853379876634" name="go_to_playstore_button">"Иди у Play продавницу"</string>
+    <string msgid="6878752668266068283" name="go_to_vr_listeners_settings_button">"Иди у подешавања"</string>
+    <string msgid="5324772199357788720" name="no_browser_text">"Нема прегледача за отварање веб-сајта"</string>
+    <string msgid="2306297166333705530" name="place_your_phone_into_cardboard">"Ставите телефон у Cardboard маску"</string>
+    <string msgid="5433369525545709510" name="place_your_viewer_into_viewer_format">"Ставите телефон у <ns1:g id="VIEWER_NAME">%s</ns1:g> маску"</string>
+    <string msgid="3719682527828378500" name="settings_button_content_description">"подешавања"</string>
+    <string msgid="20964482303479393" name="setup_button">"Подеси"</string>
+    <string msgid="7856245902137004584" name="switch_viewer_action">"Промени"</string>
+    <string msgid="816514297101696447" name="switch_viewer_prompt">"Користите другу маску?"</string>
+</resources>

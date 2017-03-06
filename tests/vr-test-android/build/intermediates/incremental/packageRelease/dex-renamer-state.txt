@@ -1,0 +1,4 @@
+#Sun Mar 05 21:57:34 EST 2017
+base.0=E\:\\Projects\\gdx-vr-extension\\tests\\vr-test-android\\build\\intermediates\\transforms\\dex\\release\\folders\\1000\\1f\\main
+renamed.0=classes.dex
+file.0=E\:\\Projects\\gdx-vr-extension\\tests\\vr-test-android\\build\\intermediates\\transforms\\dex\\release\\folders\\1000\\1f\\main\\classes.dex

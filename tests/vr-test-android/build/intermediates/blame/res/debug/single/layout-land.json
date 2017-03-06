@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\Projects\\gdx-vr-extension\\tests\\vr-test-android\\build\\intermediates\\res\\merged\\debug\\layout-land\\back_button.xml",
+        "source": "C:\\Users\\Richard\\.android\\build-cache\\a8b7041fd0700cfea434f630cc9a70948f7d5fc5\\output\\res\\layout-land\\back_button.xml"
+    },
+    {
+        "merged": "E:\\Projects\\gdx-vr-extension\\tests\\vr-test-android\\build\\intermediates\\res\\merged\\debug\\layout-land\\ui_layer_with_portrait_support.xml",
+        "source": "C:\\Users\\Richard\\.android\\build-cache\\a8b7041fd0700cfea434f630cc9a70948f7d5fc5\\output\\res\\layout-land\\ui_layer_with_portrait_support.xml"
+    },
+    {
+        "merged": "E:\\Projects\\gdx-vr-extension\\tests\\vr-test-android\\build\\intermediates\\res\\merged\\debug\\layout-land\\settings_button.xml",
+        "source": "C:\\Users\\Richard\\.android\\build-cache\\a8b7041fd0700cfea434f630cc9a70948f7d5fc5\\output\\res\\layout-land\\settings_button.xml"
+    }
+]

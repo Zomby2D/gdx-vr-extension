@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="233061162317617848" name="back_button_content_description">"tilbake"</string>
+    <string msgid="2401572676578172896" name="cancel_button">"Avbryt"</string>
+    <string msgid="2482357845034618478" name="dialog_button_got_it">"GREIT"</string>
+    <string msgid="4505853433204459373" name="dialog_button_open_help_center">"ÅPNE BRUKERSTØTTEN"</string>
+    <string msgid="4028688231551615655" name="dialog_message_incompatible_phone">"Du må ha en Daydream-kompatibel telefon. Gå til brukerstøtten for Daydream for mer informasjon."</string>
+    <string msgid="3560856374975640601" name="dialog_message_no_cardboard">"Skaff deg Cardboard-appen for å konfigurere brillene dine."</string>
+    <string msgid="418839137454435402" name="dialog_message_setup">"Konfigurer brillene dine for en best mulig opplevelse."</string>
+    <string msgid="7887077605817014784" name="dialog_title">"Konfigurer"</string>
+    <string msgid="4515090705573059650" name="dialog_title_incompatible_phone">"Inkompatibel telefon"</string>
+    <string msgid="2594928940370730859" name="dialog_title_vr_core_not_enabled">"Konfigurering kreves"</string>
+    <string msgid="6322165810291059770" name="dialog_title_vr_core_not_installed">"Installasjon kreves"</string>
+    <string msgid="455961049302726493" name="dialog_title_warning">"Advarsel"</string>
+    <string msgid="1966424794507569244" name="dialog_vr_core_not_enabled">"Det er ikke sikkert at denne appen fungerer som den skal hvis du ikke slår på Google VR-tjenester. Slå dem på i telefoninnstillingene før du fortsetter."</string>
+    <string msgid="7122144659930752678" name="dialog_vr_core_not_installed">"Det er ikke sikkert at denne appen fungerer som den skal uten Google VR-tjenester. Installer Google VR-tjenester fra Play Butikk før du fortsetter."</string>
+    <string msgid="6145412853379876634" name="go_to_playstore_button">"Gå til Play Butikk"</string>
+    <string msgid="6878752668266068283" name="go_to_vr_listeners_settings_button">"Gå til Innstillinger"</string>
+    <string msgid="5324772199357788720" name="no_browser_text">"Finner ingen nettleser som kan åpne nettstedet"</string>
+    <string msgid="2306297166333705530" name="place_your_phone_into_cardboard">"Sett inn telefonen i Cardboard-brillene"</string>
+    <string msgid="5433369525545709510" name="place_your_viewer_into_viewer_format">"Sett inn telefonen i <ns1:g id="VIEWER_NAME">%s</ns1:g>-brillene"</string>
+    <string msgid="3719682527828378500" name="settings_button_content_description">"innstillinger"</string>
+    <string msgid="20964482303479393" name="setup_button">"Konfigurer"</string>
+    <string msgid="7856245902137004584" name="switch_viewer_action">"Bytt"</string>
+    <string msgid="816514297101696447" name="switch_viewer_prompt">"Bruker du andre briller?"</string>
+</resources>
