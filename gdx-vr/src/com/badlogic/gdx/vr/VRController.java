@@ -14,17 +14,12 @@
  * limitations under the License.
  ******************************************************************************/
 
-apply plugin: 'java'
+package com.badlogic.gdx.vr;
 
-sourceCompatibility = "1.6"
-targetCompatibility = "1.6"
+public interface VRController {
 
-sourceSets.main.java.srcDirs = ["src/"]
-dependencies {
-    compile project(':gdx-vr')
-    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-}
+	boolean hasOrientation ();
 
-eclipse.project {
-    name = appName + "-core"
+	boolean hasPosition ();
+
 }

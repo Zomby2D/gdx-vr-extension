@@ -14,17 +14,26 @@
  * limitations under the License.
  ******************************************************************************/
 
-apply plugin: 'java'
+package com.badlogic.gdx.vr;
 
-sourceCompatibility = "1.6"
-targetCompatibility = "1.6"
+import com.badlogic.gdx.math.Matrix4;
 
-sourceSets.main.java.srcDirs = ["src/"]
-dependencies {
-    compile project(':gdx-vr')
-    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-}
+public interface VRDisplay {
 
-eclipse.project {
-    name = appName + "-core"
+	boolean hasOrientation ();
+
+	boolean hasPosition ();
+
+	boolean hasExternalDisplay ();
+
+	boolean isConnected ();
+
+	boolean isPresenting ();
+
+	String getVendor ();
+
+	String getModel ();
+
+	VREye getEye (VREye.Type eyeType);
+
 }

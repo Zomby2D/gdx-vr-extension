@@ -14,17 +14,23 @@
  * limitations under the License.
  ******************************************************************************/
 
-apply plugin: 'java'
+package com.badlogic.gdx.backends.android;
 
-sourceCompatibility = "1.6"
-targetCompatibility = "1.6"
+import com.badlogic.gdx.ApplicationListener;
+import com.google.vr.sdk.base.Eye;
+import com.google.vr.sdk.base.HeadTransform;
+import com.google.vr.sdk.base.Viewport;
 
-sourceSets.main.java.srcDirs = ["src/"]
-dependencies {
-    compile project(':gdx-vr')
-    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-}
+public interface GoogleVRApplicationListener extends ApplicationListener {
 
-eclipse.project {
-    name = appName + "-core"
+	void onNewFrame (HeadTransform paramHeadTransform);
+
+	void onDrawEye (Eye paramEye);
+
+	void onFinishFrame (Viewport paramViewport);
+
+	void onRendererShutdown ();
+
+	void onCardboardTrigger ();
+
 }

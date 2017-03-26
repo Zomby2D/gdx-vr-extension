@@ -14,17 +14,23 @@
  * limitations under the License.
  ******************************************************************************/
 
-apply plugin: 'java'
+package com.badlogic.gdx.vr;
 
-sourceCompatibility = "1.6"
-targetCompatibility = "1.6"
+import com.badlogic.gdx.utils.GdxRuntimeException;
 
-sourceSets.main.java.srcDirs = ["src/"]
-dependencies {
-    compile project(':gdx-vr')
-    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-}
+public class VRInterface {
+	private static final String TAG = "VRInterface";
+	static VRManager manager;
 
-eclipse.project {
-    name = appName + "-core"
+	public static VRDisplay getDisplay () {
+		return getManager().getDisplay();
+	}
+
+	static private VRManager getManager () {
+		if (manager != null)
+			return manager;
+		else
+			throw new GdxRuntimeException("No VR manager has been initialized");
+	}
+
 }

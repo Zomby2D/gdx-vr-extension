@@ -14,17 +14,42 @@
  * limitations under the License.
  ******************************************************************************/
 
-apply plugin: 'java'
+package com.badlogic.gdx.vr;
 
-sourceCompatibility = "1.6"
-targetCompatibility = "1.6"
+import com.badlogic.gdx.math.Matrix4;
 
-sourceSets.main.java.srcDirs = ["src/"]
-dependencies {
-    compile project(':gdx-vr')
-    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-}
+public interface VREye {
 
-eclipse.project {
-    name = appName + "-core"
+	public static enum Type {
+		Left(0), Right(1), Monocular(2);
+
+		final int index;
+
+		Type (int index) {
+			this.index = index;
+		}
+	}
+
+	public class FieldOfView {
+		public final float Top;
+		public final float Bottom;
+		public final float Left;
+		public final float Right;
+
+		FieldOfView (float top, float bottom, float left, float right) {
+			this.Top = top;
+			this.Bottom = bottom;
+			this.Left = left;
+			this.Right = right;
+		}
+	}
+
+	VREye.Type getType ();
+
+	Matrix4 getViewMatrix ();
+
+	Matrix4 getProjectionMatrix (float zNear, float zFar);
+
+	FieldOfView getFieldOfView ();
+
 }

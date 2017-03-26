@@ -14,17 +14,36 @@
  * limitations under the License.
  ******************************************************************************/
 
-apply plugin: 'java'
+package com.badlogic.gdx.vr;
 
-sourceCompatibility = "1.6"
-targetCompatibility = "1.6"
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.LifecycleListener;
 
-sourceSets.main.java.srcDirs = ["src/"]
-dependencies {
-    compile project(':gdx-vr')
-    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-}
+class GoogleVRManager implements VRManager {
 
-eclipse.project {
-    name = appName + "-core"
+	GoogleVRManager () {
+		VRInterface.manager = this;
+		display = new GoogleVRDisplay();
+
+		Gdx.app.addLifecycleListener(new LifecycleListener() {
+			@Override
+			public void resume () {
+			}
+
+			@Override
+			public void pause () {
+			}
+
+			@Override
+			public void dispose () {
+			}
+		});
+	}
+
+	GoogleVRDisplay display;
+
+	public VRDisplay getDisplay () {
+		return display;
+	}
+
 }

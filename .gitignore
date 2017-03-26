@@ -6,11 +6,11 @@
 hs_err_pid*
 
 ## Robovm
-/ios/robovm-build/
+/tests/vr-test-ios-robovm/robovm-build/
 
 ## GWT
-/html/war/
-/html/gwt-unitCache/
+/tests/vr-test-gwt/war/
+/tests/vr-test-gwt/gwt-unitCache/
 .apt_generated/
 .gwt/
 gwt-unitCache/
@@ -18,17 +18,17 @@ www-test/
 .gwt-tmp/
 
 ## Android Studio and Intellij and Android in general
-/android/libs/armeabi/
-/android/libs/armeabi-v7a/
-/android/libs/arm64-v8a/
-/android/libs/x86/
-/android/libs/x86_64/
-/android/gen/
+/tests/vr-test-android/libs/armeabi/
+/tests/vr-test-android/libs/armeabi-v7a/
+/tests/vr-test-android/libs/arm64-v8a/
+/tests/vr-test-android/libs/x86/
+/tests/vr-test-android/libs/x86_64/
+/tests/vr-test-android/gen/
 .idea/
 *.ipr
 *.iws
 *.iml
-/android/out/
+/tests/vr-test-android/out/
 com_crashlytics_export_strings.xml
 
 ## Eclipse
@@ -54,44 +54,59 @@ com_crashlytics_export_strings.xml
 ## NetBeans
 
 /nbproject/private/
-/android/nbproject/private/
-/core/nbproject/private/
-/desktop/nbproject/private/
-/html/nbproject/private/
-/ios/nbproject/private/
-/ios-moe/nbproject/private/
+/gdx-vr/build/
+/gdx-vr-android/nbproject/private/
+/gdx-vr-lwjgl3/nbproject/private/
+/tests/vr-test/nbproject/private/
+/tests/vr-test-android/nbproject/private/
+/tests/vr-test-gwt/nbproject/private/
+/tests/vr-test-ios-moe/nbproject/private/
+/tests/vr-test-ios-robovm/nbproject/private/
+/tests/vr-test-lwjgl3/nbproject/private/
 
 /build/
-/android/build/
-/core/build/
-/desktop/build/
-/html/build/
-/ios/build/
-/ios-moe/build/
+/gdx-vr/build/
+/gdx-vr-android/build/
+/gdx-vr-lwjgl3/build/
+/tests/vr-test/build/
+/tests/vr-test-android/build/
+/tests/vr-test-gwt/build/
+/tests/vr-test-ios-moe/build/
+/tests/vr-test-ios-robovm/build/
+/tests/vr-test-lwjgl3/build/
 
 /nbbuild/
-/android/nbbuild/
-/core/nbbuild/
-/desktop/nbbuild/
-/html/nbbuild/
-/ios/nbbuild/
-/ios-moe/nbbuild/
+/gdx-vr/nbbuild/
+/gdx-vr-android/nbbuild/
+/gdx-vr-lwjgl3/nbbuild/
+/tests/vr-test/nbbuild/
+/tests/vr-test-android/nbbuild/
+/tests/vr-test-gwt/nbbuild/
+/tests/vr-test-ios-moe/nbbuild/
+/tests/vr-test-ios-robovm/nbbuild/
+/tests/vr-test-lwjgl3/nbbuild/
 
 /dist/
-/android/dist/
-/core/dist/
-/desktop/dist/
-/html/dist/
-/ios/dist/
-/ios-moe/dist/
+/gdx-vr/dist/
+/gdx-vr-android/dist/
+/gdx-vr-lwjgl3/dist/
+/tests/vr-test/dist/
+/tests/vr-test-android/dist/
+/tests/vr-test-gwt/dist/
+/tests/vr-test-ios-moe/dist/
+/tests/vr-test-ios-robovm/dist/
+/tests/vr-test-lwjgl3/dist/
 
 /nbdist/
-/android/nbdist/
-/core/nbdist/
-/desktop/nbdist/
-/html/nbdist/
-/ios/nbdist/
-/ios-moe/nbdist/
+/gdx-vr/nbdist/
+/gdx-vr-android/nbdist/
+/gdx-vr-lwjgl3/nbdist/
+/tests/vr-test/nbdist/
+/tests/vr-test-android/nbdist/
+/tests/vr-test-gwt/nbdist/
+/tests/vr-test-ios-moe/nbdist/
+/tests/vr-test-ios-robovm/nbdist/
+/tests/vr-test-lwjgl3/nbdist/
 
 nbactions.xml
 nb-configuration.xml
@@ -101,13 +116,6 @@ nb-configuration.xml
 /local.properties
 .gradle/
 gradle-app.setting
-/build/
-/android/build/
-/core/build/
-/desktop/build/
-/html/build/
-/ios/build/
-/ios-moe/build/
 
 ## OS Specific
 .DS_Store

@@ -14,17 +14,16 @@
  * limitations under the License.
  ******************************************************************************/
 
-apply plugin: 'java'
+package com.badlogic.gdx.vr;
 
-sourceCompatibility = "1.6"
-targetCompatibility = "1.6"
+import com.badlogic.gdx.ApplicationListener;
 
-sourceSets.main.java.srcDirs = ["src/"]
-dependencies {
-    compile project(':gdx-vr')
-    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-}
+public interface VRApplicationListener extends ApplicationListener {
 
-eclipse.project {
-    name = appName + "-core"
+	void onNewFrame ();
+
+	void onDrawEye (VREye eye);
+
+	void onFinishFrame ();
+
 }

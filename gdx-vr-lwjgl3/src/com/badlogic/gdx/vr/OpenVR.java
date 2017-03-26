@@ -14,17 +14,19 @@
  * limitations under the License.
  ******************************************************************************/
 
-apply plugin: 'java'
+package com.badlogic.gdx.vr;
 
-sourceCompatibility = "1.6"
-targetCompatibility = "1.6"
+public final class OpenVR {
 
-sourceSets.main.java.srcDirs = ["src/"]
-dependencies {
-    compile project(':gdx-vr')
-    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-}
+	private OpenVR () {
+	}
 
-eclipse.project {
-    name = appName + "-core"
+	private static OpenVRManager manager;
+
+	public static void Init () {
+		manager = new OpenVRManager();
+	}
+
+	// Platform specific methods
+
 }

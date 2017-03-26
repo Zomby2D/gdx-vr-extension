@@ -4,18 +4,22 @@
 
 This is the skeleton of a VR extension that will allow multiplatform VR app development on Libgdx.
 
-
 ## What's done so far?
 
-Not much.
+The starting point for this project was to update the code from yangweigbh's [Libgdx-CardBoard-Extension](https://github.com/yangweigbh/Libgdx-CardBoard-Extension) and include the code from badlogic's [gdx-vr](https://github.com/badlogic/gdx-vr).
 
-At this point, all I have done is update the code from yangweigbh's [Libgdx-CardBoard-Extension](https://github.com/yangweigbh/Libgdx-CardBoard-Extension) and include the code from badlogic's [gdx-vr](https://github.com/badlogic/gdx-vr). They're both working fine withing the project, but they don't integrate into a common multiplatform API.
+I have also started to abstract the API, pulling a few design ideas from nooone's [gdx-vr](https://github.com/nooone/gdx-vr).
 
 
 ## What's next?
  
-The next step is to abstract the API in order to be able to write a VR application once and run it on the multiple backends.
-
+This is the tentative timeline
+- ~~Get the Android Google VR rendering working within an abstract API.~~
+- Add desktop OpenVR rendering.
+- Add support for OpenVR controllers.
+- Add support for the Daydream controller.
+- Add other backends. (WebVR, Gear VR, iOS)
+- Add support for VR hardware like the NOLO VR controllers.
 
 ## Platforms status
 
@@ -30,7 +34,9 @@ Headset and controllers are supported.
  
 ###### Google VR
 
-The bindings are there to support Google VR (Cardboard and Daydream) as a headset. The Daydream controller is not yet supported.
+The rendering for Google VR (Cardboard and Daydream) is working.
+
+The Daydream controller is not yet supported.
   
 *I do not have a Daydream View (or a supported phone) yet, but I have been able to emulate the controller on my Galaxy S6 with the help of the [Google VR Services Emulator](https://github.com/domination/gvr-services-emulator) and an old Galaxy S3 running the Controller Emulator.*
 
@@ -38,7 +44,7 @@ The bindings are there to support Google VR (Cardboard and Daydream) as a headse
 
 No work has been done yet. Once the API has been fleshed out for the desktop and Google VR backends, I plan on adding bindings for the Oculus SDK. 
 
-*I have managed to set-up my phone for developer mode, but will not have an actual Gear VR headset in my hands for a while.*  
+*I have managed to set-up my phone for developer mode, but will not have an actual Gear VR headset in my hands for a few weeks.*  
 
 ###### NOLO
 
