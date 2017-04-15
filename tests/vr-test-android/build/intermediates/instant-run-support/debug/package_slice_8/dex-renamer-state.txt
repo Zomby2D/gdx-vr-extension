@@ -1,4 +1,0 @@
-#Sun Mar 05 22:53:46 EST 2017
-base.0=E\:\\Projects\\gdx-vr-extension\\tests\\vr-test-android\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_8
-renamed.0=classes.dex
-file.0=E\:\\Projects\\gdx-vr-extension\\tests\\vr-test-android\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_8\\classes.dex

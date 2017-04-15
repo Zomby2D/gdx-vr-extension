@@ -1,7 +1,0 @@
-#Sun Mar 05 23:14:43 EST 2017
-base.0=E\:\\Projects\\gdx-vr-extension\\tests\\vr-test-android\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_3c30c51a97c2faee0010e71a61a9d9fc66260686
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=E\:\\Projects\\gdx-vr-extension\\tests\\vr-test-android\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_f93ba389f77f161c305c6eecfe53bd33dfc845f3\\classes.dex
-base.1=E\:\\Projects\\gdx-vr-extension\\tests\\vr-test-android\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_f93ba389f77f161c305c6eecfe53bd33dfc845f3
-file.0=E\:\\Projects\\gdx-vr-extension\\tests\\vr-test-android\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_3c30c51a97c2faee0010e71a61a9d9fc66260686\\classes.dex
