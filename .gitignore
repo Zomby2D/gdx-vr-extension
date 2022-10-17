@@ -6,11 +6,11 @@
 hs_err_pid*
 
 ## Robovm
-/tests/vr-test-ios-robovm/robovm-build/
+/gdx-vr-ios/robovm-build/
 
 ## GWT
-/tests/vr-test-gwt/war/
-/tests/vr-test-gwt/gwt-unitCache/
+/tests/vr-test-html/war/
+/tests/vr-test-html/gwt-unitCache/
 .apt_generated/
 .gwt/
 gwt-unitCache/
@@ -18,17 +18,13 @@ www-test/
 .gwt-tmp/
 
 ## Android Studio and Intellij and Android in general
-/tests/vr-test-android/libs/armeabi/
-/tests/vr-test-android/libs/armeabi-v7a/
-/tests/vr-test-android/libs/arm64-v8a/
-/tests/vr-test-android/libs/x86/
-/tests/vr-test-android/libs/x86_64/
+/tests/vr-test-android/libs/
 /tests/vr-test-android/gen/
 .idea/
 *.ipr
 *.iws
 *.iml
-/tests/vr-test-android/out/
+/android/out/
 com_crashlytics_export_strings.xml
 
 ## Eclipse
@@ -36,12 +32,11 @@ com_crashlytics_export_strings.xml
 .classpath
 .project
 .metadata/
-/android/bin/
-/core/bin/
-/desktop/bin/
-/html/bin/
-/ios/bin/
-/ios-moe/bin/
+/gdx-vr-android/bin/
+/gdx-vr-core/bin/
+/gdx-vr-desktop/bin/
+/gdx-vr-html/bin/
+/gdx-vr-ios/bin/
 *.tmp
 *.bak
 *.swp
@@ -54,59 +49,44 @@ com_crashlytics_export_strings.xml
 ## NetBeans
 
 /nbproject/private/
-/gdx-vr/build/
 /gdx-vr-android/nbproject/private/
-/gdx-vr-lwjgl3/nbproject/private/
-/tests/vr-test/nbproject/private/
-/tests/vr-test-android/nbproject/private/
-/tests/vr-test-gwt/nbproject/private/
-/tests/vr-test-ios-moe/nbproject/private/
-/tests/vr-test-ios-robovm/nbproject/private/
-/tests/vr-test-lwjgl3/nbproject/private/
+/gdx-vr-core/nbproject/private/
+/gdx-vr-desktop/nbproject/private/
+/gdx-vr-html/nbproject/private/
+/gdx-vr-ios/nbproject/private/
 
 /build/
-/gdx-vr/build/
 /gdx-vr-android/build/
-/gdx-vr-lwjgl3/build/
-/tests/vr-test/build/
+/gdx-vr-core/build/
+/gdx-vr-desktop/build/
+/gdx-vr-html/build/
+/gdx-vr-ios/build/
 /tests/vr-test-android/build/
-/tests/vr-test-gwt/build/
-/tests/vr-test-ios-moe/build/
-/tests/vr-test-ios-robovm/build/
-/tests/vr-test-lwjgl3/build/
+/tests/vr-test-core/build/
+/tests/vr-test-desktop/build/
+/tests/vr-test-html/build/
+/tests/vr-test-ios/build/
 
 /nbbuild/
-/gdx-vr/nbbuild/
 /gdx-vr-android/nbbuild/
-/gdx-vr-lwjgl3/nbbuild/
-/tests/vr-test/nbbuild/
-/tests/vr-test-android/nbbuild/
-/tests/vr-test-gwt/nbbuild/
-/tests/vr-test-ios-moe/nbbuild/
-/tests/vr-test-ios-robovm/nbbuild/
-/tests/vr-test-lwjgl3/nbbuild/
+/gdx-vr-core/nbbuild/
+/gdx-vr-desktop/nbbuild/
+/gdx-vr-html/nbbuild/
+/gdx-vr-ios/nbbuild/
 
 /dist/
-/gdx-vr/dist/
 /gdx-vr-android/dist/
-/gdx-vr-lwjgl3/dist/
-/tests/vr-test/dist/
-/tests/vr-test-android/dist/
-/tests/vr-test-gwt/dist/
-/tests/vr-test-ios-moe/dist/
-/tests/vr-test-ios-robovm/dist/
-/tests/vr-test-lwjgl3/dist/
+/gdx-vr-core/dist/
+/gdx-vr-desktop/dist/
+/gdx-vr-html/dist/
+/gdx-vr-ios/dist/
 
 /nbdist/
-/gdx-vr/nbdist/
 /gdx-vr-android/nbdist/
-/gdx-vr-lwjgl3/nbdist/
-/tests/vr-test/nbdist/
-/tests/vr-test-android/nbdist/
-/tests/vr-test-gwt/nbdist/
-/tests/vr-test-ios-moe/nbdist/
-/tests/vr-test-ios-robovm/nbdist/
-/tests/vr-test-lwjgl3/nbdist/
+/gdx-vr-core/nbdist/
+/gdx-vr-desktop/nbdist/
+/gdx-vr-html/nbdist/
+/gdx-vr-ios/nbdist/
 
 nbactions.xml
 nb-configuration.xml
@@ -120,3 +100,11 @@ gradle-app.setting
 ## OS Specific
 .DS_Store
 Thumbs.db
+
+## iOS
+/gdx-vr-ios/xcode/*.xcodeproj/*
+!/gdx-vr-ios/xcode/*.xcodeproj/xcshareddata
+!/gdx-vr-ios/xcode/*.xcodeproj/project.pbxproj
+/gdx-vr-ios/xcode/native/
+/gdx-vr-ios/IOSLauncher.app
+/gdx-vr-ios/IOSLauncher.app.dSYM

@@ -30,22 +30,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.ApplicationLogger;
-import com.badlogic.gdx.Audio;
-import com.badlogic.gdx.Files;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Graphics;
-import com.badlogic.gdx.LifecycleListener;
-import com.badlogic.gdx.Net;
-import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.*;
 import com.badlogic.gdx.backends.android.surfaceview.FillResolutionStrategy;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Clipboard;
-import com.badlogic.gdx.utils.GdxNativesLoader;
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.badlogic.gdx.utils.SnapshotArray;
+import com.badlogic.gdx.utils.*;
+import com.badlogic.gdx.vr.VRApplicationListener;
 
 import com.google.vr.sdk.base.GvrActivity;
 import com.google.vr.sdk.base.GvrView;
@@ -64,7 +52,7 @@ public class GoogleVRAndroidApplication extends GvrActivity implements AndroidAp
 	protected AndroidFiles files;
 	protected AndroidNet net;
 	protected AndroidClipboard clipboard;
-	protected ApplicationListener listener;
+	protected VRApplicationListener listener;
 	public Handler handler;
 	protected boolean firstResume = true;
 	protected final Array<Runnable> runnables = new Array<Runnable>();
@@ -75,15 +63,14 @@ public class GoogleVRAndroidApplication extends GvrActivity implements AndroidAp
 	protected int logLevel = LOG_INFO;
 	protected ApplicationLogger applicationLogger;
 	protected boolean useImmersiveMode = false;
-	protected boolean hideStatusBar = false;
 	private int wasFocusChanged = -1;
 	private boolean isWaitingForAudio = false;
 
 	/** This method has to be called in the {@link Activity#onCreate(Bundle)} method. It sets up all the things necessary to get
 	 * input, render via OpenGL and so on. Uses a default {@link AndroidApplicationConfiguration}.
 	 *
-	 * @param listener the {@link ApplicationListener} implementing the program logic **/
-	public void initialize (ApplicationListener listener) {
+	 * @param listener the {@link VRApplicationListener} implementing the program logic **/
+	public void initialize (VRApplicationListener listener) {
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 		initialize(listener, config);
 	}
@@ -92,10 +79,10 @@ public class GoogleVRAndroidApplication extends GvrActivity implements AndroidAp
 	 * input, render via OpenGL and so on. You can configure other aspects of the application with the rest of the fields in the
 	 * {@link AndroidApplicationConfiguration} instance.
 	 *
-	 * @param listener the {@link ApplicationListener} implementing the program logic
+	 * @param listener the {@link VRApplicationListener} implementing the program logic
 	 * @param config the {@link AndroidApplicationConfiguration}, defining various settings of the application (use accelerometer,
 	 *           etc.). */
-	public void initialize (ApplicationListener listener, AndroidApplicationConfiguration config) {
+	public void initialize (VRApplicationListener listener, AndroidApplicationConfiguration config) {
 		init(listener, config, false);
 	}
 
@@ -104,9 +91,9 @@ public class GoogleVRAndroidApplication extends GvrActivity implements AndroidAp
 	 * <p>
 	 * Note: you have to add the returned view to your layout!
 	 *
-	 * @param listener the {@link ApplicationListener} implementing the program logic
+	 * @param listener the {@link VRApplicationListener} implementing the program logic
 	 * @return the GLSurfaceView of the application */
-	public View initializeForView (ApplicationListener listener) {
+	public View initializeForView (VRApplicationListener listener) {
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 		return initializeForView(listener, config);
 	}
@@ -117,31 +104,30 @@ public class GoogleVRAndroidApplication extends GvrActivity implements AndroidAp
 	 * <p>
 	 * Note: you have to add the returned view to your layout!
 	 *
-	 * @param listener the {@link ApplicationListener} implementing the program logic
+	 * @param listener the {@link VRApplicationListener} implementing the program logic
 	 * @param config the {@link AndroidApplicationConfiguration}, defining various settings of the application (use accelerometer,
 	 *           etc.).
 	 * @return the GLSurfaceView of the application */
-	public View initializeForView (ApplicationListener listener, AndroidApplicationConfiguration config) {
+	public View initializeForView (VRApplicationListener listener, AndroidApplicationConfiguration config) {
 		init(listener, config, true);
 		return graphics.getView();
 	}
 
-	private void init (ApplicationListener listener, AndroidApplicationConfiguration config, boolean isForView) {
+	private void init (VRApplicationListener listener, AndroidApplicationConfiguration config, boolean isForView) {
 		if (this.getVersion() < MINIMUM_SDK) {
 			throw new GdxRuntimeException("LibGDX requires Android API Level " + MINIMUM_SDK + " or later.");
 		}
 		setApplicationLogger(new AndroidApplicationLogger());
 		graphics = new GoogleVRAndroidGraphics(this, config,
 			config.resolutionStrategy == null ? new FillResolutionStrategy() : config.resolutionStrategy);
-		input = AndroidInputFactory.newAndroidInput(this, this, graphics.view, config);
-		audio = new AndroidAudio(this, config);
+		input = createInput(this, this, graphics.view, config);
+		audio = createAudio(this, config);
 		this.getFilesDir(); // workaround for Android bug #10515463
-		files = new AndroidFiles(this.getAssets(), this.getFilesDir().getAbsolutePath());
-		net = new AndroidNet(this);
+		files = new DefaultAndroidFiles(this.getAssets(), this, false);
+		net = new AndroidNet(this, config);
 		this.listener = listener;
 		this.handler = new Handler();
 		this.useImmersiveMode = config.useImmersiveMode;
-		this.hideStatusBar = config.hideStatusBar;
 
 		// Add a specialized audio lifecycle listener
 		addLifecycleListener(new LifecycleListener() {
@@ -182,7 +168,6 @@ public class GoogleVRAndroidApplication extends GvrActivity implements AndroidAp
 		}
 
 		createWakeLock(config.useWakelock);
-		hideStatusBar(this.hideStatusBar);
 		useImmersiveMode(this.useImmersiveMode);
 		if (this.useImmersiveMode && getVersion() >= Build.VERSION_CODES.KITKAT) {
 			try {
@@ -198,10 +183,11 @@ public class GoogleVRAndroidApplication extends GvrActivity implements AndroidAp
 
 	@Override
 	public void onCardboardTrigger () {
-		if (!(listener instanceof GoogleVRApplicationListener)) {
-			throw new RuntimeException("should implement CardBoardApplicationListener");
+		log("GoogleVRAndroidApplication", "onCardboardTrigger");
+		if (!(listener instanceof VRApplicationListener)) {
+			throw new RuntimeException("Should implement CardBoardApplicationListener");
 		}
-		((GoogleVRApplicationListener)listener).onCardboardTrigger();
+		((VRApplicationListener)listener).buttonTrigger();
 	}
 
 	protected FrameLayout.LayoutParams createLayoutParams () {
@@ -217,25 +203,10 @@ public class GoogleVRAndroidApplication extends GvrActivity implements AndroidAp
 		}
 	}
 
-	protected void hideStatusBar (boolean hide) {
-		if (!hide || getVersion() < 11) return;
-
-		View rootView = getWindow().getDecorView();
-
-		try {
-			Method m = View.class.getMethod("setSystemUiVisibility", int.class);
-			if (getVersion() <= 13) m.invoke(rootView, 0x0);
-			m.invoke(rootView, 0x1);
-		} catch (Exception e) {
-			log("AndroidApplication", "Can't hide status bar", e);
-		}
-	}
-
 	@Override
 	public void onWindowFocusChanged (boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);
 		useImmersiveMode(this.useImmersiveMode);
-		hideStatusBar(this.hideStatusBar);
 		if (hasFocus) {
 			this.wasFocusChanged = 1;
 			if (this.isWaitingForAudio) {
@@ -253,15 +224,10 @@ public class GoogleVRAndroidApplication extends GvrActivity implements AndroidAp
 		if (!use || getVersion() < Build.VERSION_CODES.KITKAT) return;
 
 		View view = getWindow().getDecorView();
-		try {
-			Method m = View.class.getMethod("setSystemUiVisibility", int.class);
-			int code = View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+		int code = View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 				| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN
 				| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-			m.invoke(view, code);
-		} catch (Exception e) {
-			log("AndroidApplication", "Can't set immersive mode", e);
-		}
+		view.setSystemUiVisibility(code);
 	}
 
 	@Override
@@ -397,7 +363,7 @@ public class GoogleVRAndroidApplication extends GvrActivity implements AndroidAp
 		super.onConfigurationChanged(config);
 		boolean keyboardAvailable = false;
 		if (config.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO) keyboardAvailable = true;
-		input.keyboardAvailable = keyboardAvailable;
+		input.setKeyboardAvailable(keyboardAvailable);
 	}
 
 	@Override
@@ -530,4 +496,13 @@ public class GoogleVRAndroidApplication extends GvrActivity implements AndroidAp
 		return this.handler;
 	}
 
+	@Override
+	public AndroidAudio createAudio (Context context, AndroidApplicationConfiguration config) {
+		return new DefaultAndroidAudio(context, config);
+	}
+
+	@Override
+	public AndroidInput createInput (Application activity, Context context, Object view, AndroidApplicationConfiguration config) {
+		return new DefaultAndroidInput(this, this, graphics.view, config);
+	}
 }

@@ -1,0 +1,188 @@
+/*******************************************************************************
+ * Copyright 2011 See AUTHORS file.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
+
+apply plugin: "java"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+sourceSets.main.java.srcDirs = [ "src/" ]
+sourceSets.main.resources.srcDirs = ["../assets"]
+
+project.ext.mainClassName = "com.badlogic.gdx.vr.test.DesktopLauncher"
+project.ext.assetsDir = new File("../assets")
+
+task run(dependsOn: classes, type: JavaExec) {
+    mainClass = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = project.assetsDir
+    ignoreExitValue = true
+
+    if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+        // Required to run on macOS
+        jvmArgs += "-XstartOnFirstThread"
+    }
+}
+
+task debug(dependsOn: classes, type: JavaExec) {
+    mainClass = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = project.assetsDir
+    ignoreExitValue = true
+    debug = true
+}
+
+task launchTestLwjgl3(dependsOn: classes, type: JavaExec) {
+    mainClass = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = project.assetsDir
+    ignoreExitValue = true
+
+    if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+        // Required to run lwjgl java apps on Mac OSX
+        jvmArgs = ["-XstartOnFirstThread"]
+    }
+}
+configure(launchTestLwjgl3) {
+    group "gdx-vr"
+    description = "Run the Lwjgl3 test"
+}
+
+task launchTestApartmentVR(dependsOn: classes, type: JavaExec) {
+    mainClass = "com.badlogic.gdx.vr.test.ApartmentVR"
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = project.assetsDir
+    ignoreExitValue = true
+
+    if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+        // Required to run lwjgl java apps on Mac OSX
+        jvmArgs = ["-XstartOnFirstThread"]
+    }
+}
+configure(launchTestApartmentVR) {
+    group "gdx-vr"
+    description = "Run the ApartmentVR test"
+}
+
+task launchTestHelloOpenXRGL(dependsOn: classes, type: JavaExec) {
+    mainClass = 'com.badlogic.gdx.vr.test.HelloOpenXRGL'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = project.assetsDir
+    ignoreExitValue = true
+
+    if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+        // Required to run lwjgl java apps on Mac OSX
+        jvmArgs = ["-XstartOnFirstThread"]
+    }
+}
+configure(launchTestHelloOpenXRGL) {
+    group "gdx-vr"
+    description = "Run the HelloOpenXRGL test"
+}
+
+task dist(type: Jar) {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+    manifest {
+        attributes 'Main-Class': project.mainClassName
+    }
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
+
+
+dist.dependsOn classes
+
+ext {
+    libraries = [:]
+}
+
+libraries.lwjgl3 = [
+        "org.lwjgl:lwjgl:${lwjglVersion}",
+        "org.lwjgl:lwjgl:${lwjglVersion}:natives-linux",
+        "org.lwjgl:lwjgl:${lwjglVersion}:natives-linux-arm32",
+        "org.lwjgl:lwjgl:${lwjglVersion}:natives-linux-arm64",
+        "org.lwjgl:lwjgl:${lwjglVersion}:natives-macos",
+        "org.lwjgl:lwjgl:${lwjglVersion}:natives-macos-arm64",
+        "org.lwjgl:lwjgl:${lwjglVersion}:natives-windows",
+        "org.lwjgl:lwjgl:${lwjglVersion}:natives-windows-x86",
+        "org.lwjgl:lwjgl-glfw:${lwjglVersion}",
+        "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-linux",
+        "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-linux-arm32",
+        "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-linux-arm64",
+        "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-macos",
+        "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-macos-arm64",
+        "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-windows",
+        "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-windows-x86",
+        "org.lwjgl:lwjgl-jemalloc:${lwjglVersion}",
+        "org.lwjgl:lwjgl-jemalloc:${lwjglVersion}:natives-linux",
+        "org.lwjgl:lwjgl-jemalloc:${lwjglVersion}:natives-linux-arm32",
+        "org.lwjgl:lwjgl-jemalloc:${lwjglVersion}:natives-linux-arm64",
+        "org.lwjgl:lwjgl-jemalloc:${lwjglVersion}:natives-macos",
+        "org.lwjgl:lwjgl-jemalloc:${lwjglVersion}:natives-macos-arm64",
+        "org.lwjgl:lwjgl-jemalloc:${lwjglVersion}:natives-windows",
+        "org.lwjgl:lwjgl-jemalloc:${lwjglVersion}:natives-windows-x86",
+        "org.lwjgl:lwjgl-openal:${lwjglVersion}",
+        "org.lwjgl:lwjgl-openal:${lwjglVersion}:natives-linux",
+        "org.lwjgl:lwjgl-openal:${lwjglVersion}:natives-linux-arm32",
+        "org.lwjgl:lwjgl-openal:${lwjglVersion}:natives-linux-arm64",
+        "org.lwjgl:lwjgl-openal:${lwjglVersion}:natives-macos",
+        "org.lwjgl:lwjgl-openal:${lwjglVersion}:natives-macos-arm64",
+        "org.lwjgl:lwjgl-openal:${lwjglVersion}:natives-windows",
+        "org.lwjgl:lwjgl-openal:${lwjglVersion}:natives-windows-x86",
+        "org.lwjgl:lwjgl-opengl:${lwjglVersion}",
+        "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-linux",
+        "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-linux-arm32",
+        "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-linux-arm64",
+        "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-macos",
+        "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-macos-arm64",
+        "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-windows",
+        "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-windows-x86",
+        "org.lwjgl:lwjgl-stb:${lwjglVersion}",
+        "org.lwjgl:lwjgl-stb:${lwjglVersion}:natives-linux",
+        "org.lwjgl:lwjgl-stb:${lwjglVersion}:natives-linux-arm32",
+        "org.lwjgl:lwjgl-stb:${lwjglVersion}:natives-linux-arm64",
+        "org.lwjgl:lwjgl-stb:${lwjglVersion}:natives-macos",
+        "org.lwjgl:lwjgl-stb:${lwjglVersion}:natives-macos-arm64",
+        "org.lwjgl:lwjgl-stb:${lwjglVersion}:natives-windows",
+        "org.lwjgl:lwjgl-stb:${lwjglVersion}:natives-windows-x86",
+
+        "org.lwjgl:lwjgl-openvr:${lwjglVersion}",
+        "org.lwjgl:lwjgl-openvr:${lwjglVersion}:natives-windows",
+        "org.lwjgl:lwjgl-openvr:${lwjglVersion}:natives-linux",
+        "org.lwjgl:lwjgl-openvr:${lwjglVersion}:natives-macos",
+        "org.lwjgl:lwjgl-openxr:${lwjglVersion}",
+        "org.lwjgl:lwjgl-openxr:${lwjglVersion}:natives-windows",
+        "org.lwjgl:lwjgl-openxr:${lwjglVersion}:natives-linux",
+        "org.joml:joml:${jomlVersion}",
+        "org.lwjgl:lwjgl-egl:${lwjglVersion}"
+]
+
+dependencies {
+    implementation libraries.lwjgl3
+    implementation project(":tests:vr-test-core")
+    implementation project(path: ':gdx-vr-core')
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    implementation project(path: ':gdx-vr-desktop')
+}

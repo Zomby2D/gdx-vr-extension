@@ -23,19 +23,19 @@ class GoogleVREye implements VREye {
 	private Eye eye;
 
 	GoogleVREye (Eye eye) {
-		setEye(eye);
+		this.eye = eye;
 	}
 
 	void setEye (Eye eye) {
 		this.eye = eye;
 	}
 
-	public VREye.Type getType () {
+	public Type getType () {
 		switch (eye.getType()) {
 		case Eye.Type.LEFT:
-			return VREye.Type.Left;
+			return Type.Left;
 		case Eye.Type.RIGHT:
-			return VREye.Type.Right;
+			return Type.Right;
 		case Eye.Type.MONOCULAR:
 			return Type.Monocular;
 		}

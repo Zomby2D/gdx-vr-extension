@@ -19,11 +19,10 @@ package com.badlogic.gdx.vr;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.android.AndroidApplicationBase;
 import com.badlogic.gdx.backends.android.GoogleVRAndroidGraphics;
+import com.google.vr.sdk.base.Eye;
 import com.google.vr.sdk.base.GvrView;
 import com.google.vr.sdk.base.HeadMountedDisplay;
 import com.google.vr.sdk.base.HeadMountedDisplayManager;
-
-import com.google.vr.sdk.base.Eye;
 import com.google.vr.sdk.base.HeadTransform;
 
 class GoogleVRDisplay implements VRDisplay {
@@ -32,8 +31,15 @@ class GoogleVRDisplay implements VRDisplay {
 	private final HeadMountedDisplay hmd;
 	private final GoogleVREye[] eyes = new GoogleVREye[3];
 
+	private HeadTransform head = new HeadTransform();
+	private Eye leftEye = new Eye(Eye.Type.LEFT);
+	private Eye rightEye = new Eye(Eye.Type.RIGHT);
+	private Eye monocularEye = new Eye(Eye.Type.MONOCULAR);
+	private Eye leftEyeNoDistortionCorrection = new Eye(Eye.Type.LEFT);
+	private Eye rightEyeNoDistortionCorrection = new Eye(Eye.Type.RIGHT);
+
 	GoogleVRDisplay () {
-		hmdManager = new HeadMountedDisplayManager(((AndroidApplicationBase)Gdx.app).getContext());
+		hmdManager = new HeadMountedDisplayManager(((AndroidApplicationBase) Gdx.app).getContext());
 		hmd = hmdManager.getHeadMountedDisplay();
 		((GvrView)((GoogleVRAndroidGraphics)Gdx.app.getGraphics()).getView()).getCurrentEyeParams(head, leftEye, rightEye,
 				monocularEye, leftEyeNoDistortionCorrection, rightEyeNoDistortionCorrection);
@@ -73,12 +79,5 @@ class GoogleVRDisplay implements VRDisplay {
 	public VREye getEye (VREye.Type eyeType) {
 		return eyes[eyeType.index];
 	}
-
-	private HeadTransform head = new HeadTransform();
-	private Eye leftEye = new Eye(Eye.Type.LEFT);
-	private Eye rightEye = new Eye(Eye.Type.RIGHT);
-	private Eye monocularEye = new Eye(Eye.Type.MONOCULAR);
-	private Eye leftEyeNoDistortionCorrection = new Eye(Eye.Type.LEFT);
-	private Eye rightEyeNoDistortionCorrection = new Eye(Eye.Type.RIGHT);
 
 }

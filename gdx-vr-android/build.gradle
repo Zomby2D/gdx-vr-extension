@@ -17,8 +17,7 @@
 apply plugin: "com.android.library"
 
 android {
-    buildToolsVersion "25.0.0"
-    compileSdkVersion 25
+    compileSdkVersion 30
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -26,20 +25,18 @@ android {
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']
             res.srcDirs = ['res']
-            assets.srcDirs = ['assets']
+            assets.srcDirs = ['../assets']
             jniLibs.srcDirs = ['libs']
         }
-
-        instrumentTest.setRoot('tests')
     }
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 24
+        targetSdkVersion 30
     }
 }
 
 dependencies {
-    compile project(":gdx-vr")
-    compile "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
-    compile "com.google.vr:sdk-base:1.20.0"
+    compileOnly project(":gdx-vr-core")
+    implementation "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
+    implementation "com.google.vr:sdk-base:1.190.0"
 }

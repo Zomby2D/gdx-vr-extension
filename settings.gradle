@@ -14,14 +14,14 @@
  * limitations under the License.
  ******************************************************************************/
 
-include ':gdx-vr'
+include ':gdx-vr-core'
 include ':gdx-vr-android'
-include ':gdx-vr-lwjgl3'
+include ':gdx-vr-desktop'
 
-include ":tests"
-include ":tests:vr-test"
+include ":tests:vr-test-core"
 include ":tests:vr-test-android"
-include ":tests:vr-test-gwt"
-include ':tests:vr-test-ios-moe'
-include ":tests:vr-test-ios-robovm"
-include ":tests:vr-test-lwjgl3"
+include ":tests:vr-test-desktop"
+include ":tests:vr-test-html"
+include ":tests:vr-test-ios"
+
+rootProject.name = "gdx-vr"
